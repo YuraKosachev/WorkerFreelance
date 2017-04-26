@@ -1,0 +1,95 @@
+﻿@model PagginationModelList<ProfileViewModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="page-header">
+    <h1>Профили</h1>
+</div>
+
+@Html.Partial("_OfferCreatePartial")
+<div class="row">
+    <div class="col-lg-5 col-xs-12">
+        @Html.Partial("_FilterMenuPartial", Model.IndexState)
+    </div>
+    <div class="col-lg-7 col-xs-12">
+        <table class="table">
+            <tr>
+                <th>
+                    Категории
+                    <a href="@Url.Link("Index", Model.IndexState, "Category.NameCategory")" class="btn btn-default btn-xs active" role="button">
+                        <span class="@Html.GetSortClass(Model.IndexState, "Category.NameCategory")"></span>
+                    </a>
+                </th>
+                <th>
+                </th>
+                <th>
+                    Время доступности
+                    <a href="@Url.Link("Index", Model.IndexState, "TimeFrom")" class="btn btn-default btn-xs active" role="button">
+                        <span class="@Html.GetSortClass(Model.IndexState, "TimeFrom")"></span>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.PageList)
+            {
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="left" data-content="@item.PhoneNumber">
+                                <span class="glyphicon glyphicon-phone"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="bottom" data-content="@item.FreelancerName">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm" data-container="body" data-toggle="popover" data-placement="right" data-content="@item.DescriptionProfile">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeAvailability)
+                    </td>
+
+                    <td>
+
+                        <button class="btn btn-success btn-sm" data-offer-modal="#OfferCreate"
+                                data-time-from-h="@item.TimeFrom.Hours"
+                                data-time-from-m="@item.TimeFrom.Minutes"
+                                data-time-to-h="@item.TimeTo.Hours"
+                                data-time-to-m="@item.TimeTo.Minutes"
+                                data-profile-id="@item.Id">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            Бронировать
+                        </button>
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+@Html.ActionLink("GetFile", "GetFile", Model.IndexState, new { filename = "17068070-cdcf-498f-873b-c72dcac5d6d4.doc", userId="241f0079-6624-488b-9b40-35c832c863d8" })
+
+<br />
+    Страница @(Model.PageList.PageCount < Model.PageList.PageNumber ? 0 : Model.PageList.PageNumber) из @Model.PageList.PageCount
+
+    @Html.PagedListPager(Model.PageList, page => Url.ActionToPage("Index", Model.IndexState, page))
+
+
+
+
+
+
+
+

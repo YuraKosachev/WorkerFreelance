@@ -1,0 +1,96 @@
+﻿@model Freelance.Web.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2><span class="glyphicon glyphicon-edit"></span> РЕДАКТИРОВАТЬ</h2>
+
+<h4>Профиль</h4>
+
+
+@using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(m => m.CategoryId)
+
+                    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.IndexState.Categories, "key", "value", Model.CategoryId), new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.DescriptionProfile)
+
+                    @Html.EditorFor(model => model.DescriptionProfile, new { htmlAttributes = new { @class = "form-control", placeholder = "Введите описание профиля" } })
+                    @Html.ValidationMessageFor(model => model.DescriptionProfile, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.TimeFrom)
+
+                    <div class='input-group date time'>
+                        @Html.TextBoxFor(model => model.TimeFrom, new { @class = "form-control", placeholder = "Выберите время" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TimeFrom, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(model => model.TimeTo)
+
+                    <div class='input-group date time'>
+                        @Html.TextBoxFor(model => model.TimeTo, new { @class = "form-control", placeholder = "Выберите время" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TimeTo, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="actions" hidden>
+
+                    <input type="file" id="upload" data-type-file="text" name="File" value="Choose a file" />
+                </div>
+                <div class="form-group col-md-12">
+                    @Html.LabelFor(item => item.FileName)
+                    <div class="input-group ">
+                        @Html.TextBoxFor(item => item.FileName, new { @class = "form-control", placeholder = "Выберите файл", data_insert = "fileName" })
+                        <span class="input-group-btn">
+                            <button type="button" data-source="file" class="btn btn-default">
+                                <span class="glyphicon glyphicon-paperclip"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-success pull-right">Редактировать</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLinkWithImage("Назад к списку", "FreelancerProfiles", "Profile", "glyphicon glyphicon-chevron-left", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { @class = "btn btn-md btn-default" })
+</div>
+@section Scripts {
+   @Scripts.Render("~/bundles/ProfileCreateEdit")
+    
+}

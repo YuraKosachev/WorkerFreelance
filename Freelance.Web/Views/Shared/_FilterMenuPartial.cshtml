@@ -1,0 +1,55 @@
+﻿@model IndexState
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-danger remove" data-remove-content="SearchString" type="button">
+                    <span class="glyphicon glyphicon-remove removeicon"></span>
+                </button>
+            </span>
+            @Html.TextBoxFor(model => model.SearchString, new { @class = "form-control", placeholder = "Search", })
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <div class='input-group date timeFilterFrom'>
+            <span class="input-group-btn">
+                <button class="btn btn-danger remove" data-remove-content="TimeAvailability" type="button">
+                    <span class="glyphicon glyphicon-remove removeicon"></span>
+                </button>
+            </span>
+            @Html.TextBoxFor(model => model.TimeAvailability, new { @class = "form-control", placeholder = "Выберите время" })
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-danger remove" data-remove-content="SearchString" type="button">
+                    <span class="glyphicon glyphicon-remove removeicon"></span>
+                </button>
+            </span>
+            @{var list = Model.Categories;}
+            @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.Categories, "key", "value", Model.CategoryId), new { @class = "form-control dropdown-select" })
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Фильтр</button>
+    </div>
+
+
+                }
+

@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.Web", "Freelance.Web\Freelance.Web.csproj", "{889C81DA-887D-4488-ACBA-119F5275D067}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.Service", "Freelance.Service\Freelance.Service.csproj", "{91729432-5F9C-4A7B-A738-3F890C7216D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.Provider", "Freelance.Provider\Freelance.Provider.csproj", "{D7AA0EAA-0834-470D-86AB-E88C96571D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.FreelanceException", "Freelance.FreelanceException\Freelance.FreelanceException.csproj", "{F6006584-0AF9-4F70-8451-8E143606EEE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.FileManagerProvider", "Freelance.FileManagerProvider\Freelance.FileManagerProvider.csproj", "{0B8267BA-89D6-465F-B8FA-4776CBBCD9F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freelance.Extensions", "Freelance.Extensions\Freelance.Extensions.csproj", "{C8411FDE-94F0-4CA6-AC33-B36F3224FADA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{71B5B9BF-513E-4C31-8DF4-5E7EFFCFB8C0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{889C81DA-887D-4488-ACBA-119F5275D067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{889C81DA-887D-4488-ACBA-119F5275D067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{889C81DA-887D-4488-ACBA-119F5275D067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{889C81DA-887D-4488-ACBA-119F5275D067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91729432-5F9C-4A7B-A738-3F890C7216D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91729432-5F9C-4A7B-A738-3F890C7216D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91729432-5F9C-4A7B-A738-3F890C7216D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91729432-5F9C-4A7B-A738-3F890C7216D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AA0EAA-0834-470D-86AB-E88C96571D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AA0EAA-0834-470D-86AB-E88C96571D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AA0EAA-0834-470D-86AB-E88C96571D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AA0EAA-0834-470D-86AB-E88C96571D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6006584-0AF9-4F70-8451-8E143606EEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6006584-0AF9-4F70-8451-8E143606EEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6006584-0AF9-4F70-8451-8E143606EEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6006584-0AF9-4F70-8451-8E143606EEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8267BA-89D6-465F-B8FA-4776CBBCD9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8267BA-89D6-465F-B8FA-4776CBBCD9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8267BA-89D6-465F-B8FA-4776CBBCD9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8267BA-89D6-465F-B8FA-4776CBBCD9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8411FDE-94F0-4CA6-AC33-B36F3224FADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8411FDE-94F0-4CA6-AC33-B36F3224FADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8411FDE-94F0-4CA6-AC33-B36F3224FADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8411FDE-94F0-4CA6-AC33-B36F3224FADA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

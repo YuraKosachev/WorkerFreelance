@@ -1,0 +1,36 @@
+﻿@model Freelance.Web.Models.OfferViewModel
+
+
+@if (User.IsInRole("client"))
+{
+
+    if (Model.FreelancerConfirm)
+    {
+        <span class="glyphicon glyphicon-ok text-success"></span>
+    }
+    else
+    {
+        <span class="glyphicon glyphicon-remove text-danger"></span>
+    }
+}
+@if (User.IsInRole("freelancer"))
+{
+    if (Model.FreelancerConfirm)
+    {
+        <button type="button" class="btn btn-success btn-xs disabled">Подтвержден!</button>
+    }
+    else
+    {
+        <button type="button" class="btn btn-primary btn-xs"
+                data-confirm-description="@Model.Description"
+                data-confirm-DateOfCreate="@Model.DateOfCreate"
+                data-confirm-UserId="@Model.UserId"
+                data-confirm-ProfileId="@Model.ProfileId"
+                data-confirm-date="@Model.Date"
+                data-offer-id="@Model.Id" data-offer-confim="#ConfirmOffer">
+            Подтвердить
+        </button>
+    }
+}
+
+

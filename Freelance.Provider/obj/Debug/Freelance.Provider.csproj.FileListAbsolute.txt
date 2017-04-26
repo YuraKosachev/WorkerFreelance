@@ -1,0 +1,121 @@
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll.config
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.csprojResolveAssemblyReference.cache
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Owin.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\System.Linq.Dynamic.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll.config
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.pdb
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Owin.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\System.Linq.Dynamic.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.pdb
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.pdb
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.csprojResolveAssemblyReference.cache
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.dll
+F:\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.pdb
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll.config
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Provider.pdb
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Owin.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\System.Linq.Dynamic.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.Extensions.pdb
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Freelance.FreelanceException.pdb
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\EntityFramework.SqlServer.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.csprojResolveAssemblyReference.cache
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.pdb
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.Owin.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.Owin.Security.resources.dll
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.initial_added_tbs_user_role_claim.resources
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.csproj.GenerateResource.Cache
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_category.resources
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_profile.resources
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_offer.resources
+E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.created_rel_bt_tables.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.Owin.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\bin\Debug\ru\Microsoft.Owin.Security.resources.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.initial_added_tbs_user_role_claim.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_category.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_profile.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.added_tb_offer.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.Migrations.created_rel_bt_tables.resources
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Freelance.Web\Freelance.Provider\obj\Debug\Freelance.Provider.csproj.GenerateResource.Cache
