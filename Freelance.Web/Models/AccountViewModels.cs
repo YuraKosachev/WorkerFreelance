@@ -78,7 +78,10 @@ namespace Freelance.Web.Models
         [EmailAddress]
         [Display(Name = "Адрес электронной почты")]
         public string Email { get; set; }
-        [DataType(DataType.PhoneNumber)]
+        [Required]
+        [Phone]
+        [Display(Name = "Номер телефона")]
+        [RegularExpression(@"^(\+375){1}\d{9}$", ErrorMessage = "Значение должно содержать цифры, маска ввода номера +375 .. ... .. ..")]
         public string PhoneNumber { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 6)]

@@ -16,3 +16,9 @@ E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance
 E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Extensions\obj\Debug\Freelance.Extensions.dll
 E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Extensions\obj\Debug\Freelance.Extensions.pdb
 E:\УЧЕБА\Проект Sam Solutions\WorkerFreelance\Freelance.Web\Freelance.Extensions\obj\Debug\Freelance.Extensions.csprojResolveAssemblyReference.cache
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\bin\Debug\Freelance.Extensions.dll
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\bin\Debug\Freelance.Extensions.pdb
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\bin\Debug\System.Linq.Dynamic.dll
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.csprojResolveAssemblyReference.cache
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.dll
+E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.pdb
