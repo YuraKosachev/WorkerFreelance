@@ -34,3 +34,16 @@ textarea {
     height:500px;
     resize: none;
 }
+.profile {
+    border:1px solid #eeeeee;
+    margin-top:10px;
+}
+.profiletime {
+padding-top:10px;
+}
+.profilebody {
+    padding:5px 5px 5px 5px;
+}
+.profileline {
+border-bottom:1px solid #eeeeee;
+}

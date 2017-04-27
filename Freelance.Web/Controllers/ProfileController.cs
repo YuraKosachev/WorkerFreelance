@@ -27,7 +27,7 @@ namespace Freelance.Web.Controllers
         public ProfileControllerMapperProfile()
         {
             CreateMap<ProfileServiceModel, ProfileViewModel>()
-                .ForMember(item => item.TimeAvailability, exp => exp.MapFrom(src => String.Format("{0} - {1}", src.TimeFrom, src.TimeTo))).ReverseMap();
+                .ForMember(item => item.TimeAvailability, exp => exp.MapFrom(src => String.Format("{0:hh\\:mm} - {1:hh\\:mm}", src.TimeFrom, src.TimeTo))).ReverseMap();
             
 
 

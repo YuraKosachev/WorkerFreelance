@@ -47,7 +47,9 @@ namespace Freelance.Web
                        "~/Content/site.css",
                        "~/Content/PagedList.css"));
             bundles.Add(new ScriptBundle("~/bundles/ProfileCreateEdit").Include(
-                   "~/Scripts/ProfileCreateEdit.js"));
+                   "~/Scripts/ProfileCreateEdit.js")); 
+                bundles.Add(new ScriptBundle("~/bundles/Profile").Include(
+                   "~/Scripts/profileindex.js"));
         }
     }
 }

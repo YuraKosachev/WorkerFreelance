@@ -7,7 +7,7 @@
 <h2><span class="glyphicon glyphicon-edit"></span> РЕДАКТИРОВАТЬ</h2>
 
 <h4>Профиль</h4>
-
+<hr/>
 
 @using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 { @Html.AntiForgeryToken()
@@ -38,7 +38,7 @@
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.TimeFrom)
 
-                    <div class='input-group date time'>
+                    <div class='input-group date time timeFrom'>
                         @Html.TextBoxFor(model => model.TimeFrom, new { @class = "form-control", placeholder = "Выберите время" })
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
@@ -51,7 +51,7 @@
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.TimeTo)
 
-                    <div class='input-group date time'>
+                    <div class='input-group date time timeTo'>
                         @Html.TextBoxFor(model => model.TimeTo, new { @class = "form-control", placeholder = "Выберите время" })
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>

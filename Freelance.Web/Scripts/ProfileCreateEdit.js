@@ -1,12 +1,28 @@
 ﻿$(function () {
 
+    var timeTo = $(".timeTo").datetimepicker({
+        locale: 'ru',
+        format: 'LT',
+    });
+    var timeFrom = $(".timeFrom").datetimepicker({
+        locale: 'ru',
+        format: 'LT',
+    });
+    timeTo.on('dp.change', function (selected) {
+        
+        timeFrom.data("DateTimePicker").maxDate(selected.date);
+    });
+    timeFrom.on('dp.change', function (selected) {
+        
+        timeTo.data("DateTimePicker").minDate(selected.date);
+    });
+
     $('button[data-source="file"]').on("click", function (e) {
         $("input[type='file']").trigger('click');
     });
 
     $("input[type='file']").on("change", function (data) {
 
-        console.log($(this));
         if ($(this)[0].files.length == 0) {
             $('input[data-insert="fileName"]').val("");
         } else {

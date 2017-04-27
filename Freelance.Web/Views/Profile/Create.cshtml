@@ -39,7 +39,7 @@
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.TimeFrom)
                     
-                        <div class='input-group date time'>
+                        <div class='input-group date time timeFrom'>
                             @Html.TextBoxFor(model => model.TimeFrom, new { @class = "form-control", placeholder = "Выберите время" })
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>
@@ -52,7 +52,7 @@
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.TimeTo)
                     
-                        <div class='input-group date time'>
+                        <div class='input-group date time timeTo'>
                             @Html.TextBoxFor(model => model.TimeTo, new { @class = "form-control", placeholder = "Выберите время" })
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-time"></span>

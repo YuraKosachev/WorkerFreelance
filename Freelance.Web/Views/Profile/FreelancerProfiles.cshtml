@@ -23,68 +23,59 @@
     </div>
 </div>
 <hr/>
-@if (Model.PageList.Count > 0)
-{
-foreach (var item in Model.PageList)
-{
-<div class="row" >
-    <div class="col-md-offset-2 col-md-8 col-xs-12" style="border:1px solid #eeeeee;margin-top:10px">
-        <div class="row" style="border-bottom:1px solid #eeeeee">
-            <div class="col-md-3 col-xs-12" data-toggle="tooltip" data-placement="bottom" title="@item.CategoryDescription">
-               <h4 > @Html.DisplayFor(modelItem => item.CategoryName)</h4>
-            </div>
-            <div class="col-md-9 col-xs-12 text-right" style="padding-top:5px;">
-                <b>
-                @Html.DisplayFor(modelItem => item.TimeAvailability)
-                </b>
-           </div>
-        </div>
-        <div class="row" style="padding:5px 5px 5px 5px;" >
-            <div class="col-md-3 col-xs-12 eq">
-                @Html.Image(item.ImageName, "upload/app", HelperImageExtension.Holder(64, 73), new { width = 64, height = 73 })
-            </div>
-            
-            <div class="col-md-4 col-xs-12 eq">
-                @Html.DisplayFor(modelItem => item.DescriptionProfile)
-            </div>
-            
-            <div class="col-md-2 col-xs-12 eq">
-               @if (item.FileName != null)
-               {
-                   @Html.ActionLinkWithImage("Файл", "GetFile", "Profile", "glyphicon glyphicon-upload", new { fileName = item.FileName, userId = User.Identity.GetUserId() }, new { @class = "btn btn-md btn-default" })
-               }
-            </div>
-            
-            <div class="col-md-3 col-xs-12 eq">
-               
 
-                <div class="btn-group">
-                    <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown">
-                        Выбрать действие <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Profile", "glyphicon glyphicon-edit", new { id = item.Id, Page = Model.IndexState.Page, SortAscending=Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty}, new { })</li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#" data-profile-id=@item.Id data-toggle="modal" data-target="#DeleteModal">
-                                <span class="glyphicon glyphicon-trash"></span> Удалить
-                            </a>
-                           
-                        </li>
-                    </ul>
 
+        @if (Model.PageList.Count > 0)
+        {
+            foreach (var item in Model.PageList)
+            {
+                
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8 col-xs-12 profile">
+                        <div class="row profileline">
+                            <div class="col-md-3 col-xs-12" data-toggle="tooltip" data-placement="bottom" title="@item.CategoryDescription">
+                                <h4> @Html.DisplayFor(modelItem => item.CategoryName)</h4>
+                            </div>
+                            <div class="col-md-9 col-xs-12 text-right profiletime">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <b>
+                                    @Html.DisplayFor(modelItem => item.TimeAvailability)
+                                </b>
+                            </div>
+                        </div>
+                        <div class="row profilebody">
+                           @Html.Partial("_ProfileViewModelPartial",item)
+
+                            <div class="col-md-3 col-xs-12 eq">
+
+                                <div class="btn-group">
+                                    <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Выбрать действие <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Profile", "glyphicon glyphicon-edit", new { id = item.Id, Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { })</li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a href="#" data-profile-id=@item.Id data-toggle="modal" data-target="#DeleteModal">
+                                                <span class="glyphicon glyphicon-trash"></span> Удалить
+                                            </a>
+
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
-            
-        </div>
-    </div>
-</div>
-</div>
-}
-}
-else
-{
-<h2>Список профилей пуст</h2>
-}
+            }
+        }
+        else
+        {
+            <h4>Список профилей пуст</h4>
+        }
 
 
 
@@ -96,32 +87,6 @@ else
 
 
 @section Scripts {
-    <script type="text/javascript">
-            $(function () {
-
-                $('[data-toggle="tooltip"]').tooltip();
-
-                //выравнивание блоков по высоте
-                $('.container').each(function () {
-                    var highestBox = 0;
-                    $('.eq', this).each(function () {
-                        if ($(this).height() > highestBox) {
-                            highestBox = $(this).height();
-                        }
-                    });
-                    $('.eq', this).height(highestBox);
-                });
-
-
-
-                $('a[data-toggle="modal"]').on('click', function (e) {
-
-                    var deleteId = $(this).attr('data-profile-id');
-                    $('input[name="id"]').val(deleteId);
-                });
-
-
-            });
-    </script>
+@Scripts.Render("~/bundles/Profile")
 }
 

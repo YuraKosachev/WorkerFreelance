@@ -1,0 +1,19 @@
+﻿@model ProfileViewModel
+
+<div class="col-md-3 col-xs-12 eq">
+    @Html.Image(Model.ImageName, "upload/app", HelperImageExtension.Holder(64, 73), new { width = 64, height = 73 })
+</div>
+
+<div class="col-md-4 col-xs-12 eq">
+    @Html.DisplayFor(model => model.DescriptionProfile)
+</div>
+
+<div class="col-md-2 col-xs-12 eq">
+    @if (Model.FileName != null)
+    {
+        @Html.ActionLinkWithImage("Файл", "GetFile", "Profile", "glyphicon glyphicon-upload", new { fileName = Model.FileName, Model.UserId }, new { @class = "btn btn-md btn-default" })
+    }
+</div>
+
+
+
