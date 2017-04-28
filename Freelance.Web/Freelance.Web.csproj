@@ -296,7 +296,7 @@
     <Content Include="Scripts\CropppieScript.js" />
     <Content Include="Scripts\demo.js" />
     <Content Include="Scripts\exif.js" />
-    <Content Include="Scripts\freelancedatepicker.js" />
+    <Content Include="Scripts\index.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\holder.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -367,10 +367,11 @@
     <Content Include="Views\Shared\_DeleteCofirmModalPartial.cshtml" />
     <Content Include="Views\Shared\_DeleteCofirmModalProfile.cshtml" />
     <Content Include="Views\Shared\_ProfileViewModelPartial.cshtml" />
+    <Content Include="Views\Offer\Index.cshtml" />
+    <Content Include="Views\Shared\_DeleteCofirmModalOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Offer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

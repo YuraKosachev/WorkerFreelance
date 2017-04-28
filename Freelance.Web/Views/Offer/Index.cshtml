@@ -1,0 +1,109 @@
+﻿@model PagginationModelList<OfferViewModel>
+@{
+    ViewBag.Title = "Предложения";
+}
+@if (User.IsInRole("client")) {
+@Html.Partial("_DeleteCofirmModalOffer",Model.IndexState)
+}
+else {
+@Html.Partial("_UserOfferConfirmModal")
+}
+<div class="page-header">
+    <h1>@ViewBag.Title</h1>
+</div>
+<div class="row">
+    <div class="col-md-offset-1 col-md-3 col-xs-12">
+        <a href="@Url.Link("Index", Model.IndexState, "DateOfCreate")" class="btn btn-default btn-md active">
+            Сортировка:Время создания <span class="@Html.GetSortClass(Model.IndexState, "DateOfCreate")"></span>
+        </a>
+    </div>
+    <div class="col-md-3 col-xs-12">
+        <a href="@Url.Link("Index", Model.IndexState, "Profile.Category.NameCategory")" class="btn btn-default btn-md active">
+            Сортировка:Категории <span class="@Html.GetSortClass(Model.IndexState, "Profile.Category.NameCategory")"></span>
+        </a>
+    </div>
+    <div class="col-md-3 col-xs-12">
+
+    </div>
+</div>
+
+
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.PageList.Count > 0)
+            {
+                foreach (var item in Model.PageList)
+                {
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10 col-xs-12 profile">
+                            <div class="row profileline">
+                                <div class="col-md-3 col-xs-12" data-toggle="tooltip" data-placement="bottom" title="@item.DescriptionCategory">
+                                    <h4> @Html.DisplayFor(modelItem => item.NameCategory)</h4>
+                                </div>
+                                <div class="col-md-9 col-xs-12 text-right profiletime">
+                                    Время создания:
+                                    @Html.DisplayFor(modelItem => item.DateOfCreate)
+                                </div>
+                            </div>
+                            <div class="row profilebody">
+                                <div class="col-md-2 col-xs-12 eq">
+                                    @Html.Image(item.CategoryImageName, "upload/app", HelperImageExtension.Holder(64, 73), new { width = 64, height = 73 })
+                                </div>
+                                <div class="col-md-3 col-xs-12 eq">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                            <b>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </b>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                            <b>
+                                                @Html.DisplayFor(modelItem => item.Time)
+                                            </b>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="glyphicon glyphicon-phone-alt"></span>
+                                            <b>
+                                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                            </b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-xs-12 eq">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
+                                <div class="col-md-1 col-xs-12 eq">
+                                    @Html.Partial("_UserConfirmed", item)
+                                </div>
+                                <div class="col-md-2 col-xs-12 eq">
+                                    @if (User.IsInRole("client"))
+                    {
+                                        <a href="#" class="btn btn-default btn-md pull-right" data-item-id="@item.Id" data-toggle="modal" data-target="#DeleteModal">
+                                            <span class="glyphicon glyphicon-trash"></span> Удалить
+                                        </a>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+            else
+            {
+                <h4>Список предложений пуст</h4>
+            }
+        </div>
+    </div>
+
+    <br />
+    Страница @(Model.PageList.PageCount < Model.PageList.PageNumber ? 0 : Model.PageList.PageNumber) из @Model.PageList.PageCount
+
+    @Html.PagedListPager(Model.PageList, page => Url.ActionToPage("Index", Model.IndexState, page))
+    @section Scripts {
+        @Scripts.Render("~/bundles/OfferConfirmed")
+    }

@@ -42,7 +42,6 @@
                     <span class="glyphicon glyphicon-remove removeicon"></span>
                 </button>
             </span>
-            @{var list = Model.Categories;}
             @Html.DropDownListFor(model => model.SortCategoryId, new SelectList(Model.Categories, "key", "value", Model.SortCategoryId), new { @class = "form-control dropdown-select" })
         </div>
     </div>

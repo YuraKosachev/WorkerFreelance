@@ -12,10 +12,13 @@ namespace Freelance.Service.Services
     {
         public OfferServiceMapperProfile()
         {
-            CreateMap<OfferServiceModel, Offer>().ReverseMap()
+            CreateMap<OfferServiceModel, Offer>()
+                .ReverseMap()
                 .ForMember(item => item.FreelancerName, exp => exp.MapFrom(src => String.Format("{0} {1}", src.User.UserFirstName, src.User.UserSurname)))
-                .ForMember(item => item.PhoneNumber, exp => exp.MapFrom(src => src.User.PhoneNumber));
-
+                .ForMember(item => item.PhoneNumber, exp => exp.MapFrom(src => src.User.PhoneNumber))
+                .ForMember(item => item.NameCategory, exp => exp.MapFrom(src => src.Profile.Category.NameCategory))
+                .ForMember(item => item.DescriptionCategory, exp => exp.MapFrom(src => src.Profile.Category.DescriptionCategory))
+                .ForMember(item => item.CategoryImageName, exp => exp.MapFrom(src => src.Profile.Category.ImageName));
 
 
         }

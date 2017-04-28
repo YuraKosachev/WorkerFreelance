@@ -16,6 +16,9 @@ namespace Freelance.Service.ServicesModel
         public string Description { get; set; }
         public bool FreelancerConfirm { get; set; }
         public DateTime DateOfCreate { get; set; }
+        public string NameCategory { get; set; }
+        public string DescriptionCategory { get; set; }
+        public string CategoryImageName { get; set; }
 
 
 

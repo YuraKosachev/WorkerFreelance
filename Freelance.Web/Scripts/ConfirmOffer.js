@@ -1,4 +1,11 @@
 ﻿$(function () {
+
+    $('a[data-toggle="modal"]').on('click', function (e) {
+
+        var deleteItemId = $(this).attr('data-item-id');
+        $('input[name="id"]').val(deleteItemId);
+    });
+
     var DataConfirm = {
         Id: null,
         Date: null,
@@ -20,9 +27,9 @@
     });
     
 
-    $('[data-bt-role="confirm"]').on("click", function () {
-        
-        $.post("Confirm", DataConfirm)
+    $('[data-bt-role="confirm"]').on("click", function (e) {
+        e.stopPropagation();
+        $.post("Offer/Confirm", DataConfirm)
             .success(function (data) {
                 var button = $('[data-offer-id="' + data.OfferId + '"]');
                 button.removeClass("btn-primary");

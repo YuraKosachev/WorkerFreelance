@@ -9,7 +9,7 @@ namespace Freelance.Provider.Providers
         public OfferProvider() : base() { }
         public override Extensions.Interfaces.IAppQuery<Offer> GetList()
         {
-            return new AppQuery<Offer>(Context.Set<Offer>().Include("Profile").Include("User"));
+            return new AppQuery<Offer>(Context.Set<Offer>().Include("Profile").Include("User").Include("Profile.Category"));
         }
 
     }

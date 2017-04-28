@@ -21,7 +21,6 @@ namespace Freelance.Provider.EntityModels
         public string FileName { get; set; }
 
         //navi setting
-
         public virtual Profile Profile { get; set; }
         public virtual User User { get; set; }
     }

@@ -103,29 +103,7 @@ namespace Freelance.Web.Controllers
                 return Content(ex.Message);
             }
         }
-        // POST: Offer/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(OfferViewModel model)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
-        //        OfferService.Update(Mapper.Map<OfferServiceModel>(model));
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        // GET: Offer/Delete/5
-        //[Authorize(Roles = "client")]
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
+     
         // POST: Offer/Delete/5
         [Authorize(Roles = "client")]
         [HttpPost]

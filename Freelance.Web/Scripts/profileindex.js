@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    $('[data-toggle="tooltip"]').tooltip();
+    
 
     //выравнивание блоков по высоте
     $('.container').each(function () {

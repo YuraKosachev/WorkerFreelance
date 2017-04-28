@@ -19,7 +19,7 @@ namespace Freelance.Web.HtmlHelperExtensions
                 indexState.SearchString,
                 SortProperty = sortProperty,
                 SortAscending = !(indexState.SortAscending && indexState.SortProperty == sortProperty),
-                CategoryId = indexState.SortCategoryId,
+                SortCategoryId = indexState.SortCategoryId,
                 TimeAvailability = indexState.TimeAvailability
 
             });

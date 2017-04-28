@@ -33,7 +33,7 @@ namespace Freelance.Web
                    "~/Scripts/ConfirmOffer.js"));
             bundles.Add(new ScriptBundle("~/bundles/MyScripts").Include(
                       "~/Scripts/offercreate.js",
-                      "~/Scripts/freelancedatepicker.js",
+                      "~/Scripts/index.js",
                       "~/Scripts/holder.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/Croppie").Include(
                     "~/Scripts/croppie.min.js",
