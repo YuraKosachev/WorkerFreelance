@@ -44,22 +44,29 @@ namespace Freelance.Web.Controllers
         [Authorize(Roles = "freelancer, client")]
         public ActionResult Index(IndexState state)
         {
-            var userId = User.Identity.GetUserId();
-            var listSetting = OfferService.GetList();
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var listSetting = OfferService.GetList();
 
-            //filtring
-            if (User.IsInRole("client"))
-                listSetting.Filter("UserId == @0", userId);
-            if (User.IsInRole("freelancer"))
-                listSetting.Filter("Profile.UserId == @0", userId);
+                //filtring
+                if (User.IsInRole("client"))
+                    listSetting.Filter("UserId == @0", userId);
+                if (User.IsInRole("freelancer"))
+                    listSetting.Filter("Profile.UserId == @0", userId);
 
 
-            listSetting.Sort(state, "DateOfCreate").Page(state);
+                listSetting.Sort(state, "DateOfCreate").Page(state);
 
-            var list = listSetting.StaticList<OfferViewModel, OfferServiceModel>(state);
-            var pagginationList = new PagginationModelList<OfferViewModel>(state, list);
+                var list = listSetting.StaticList<OfferViewModel, OfferServiceModel>(state);
+                var pagginationList = new PagginationModelList<OfferViewModel>(state, list);
 
-            return View(pagginationList);
+                return View(pagginationList);
+            }
+            catch (Exception ex)
+            {
+                return Content(String.Format("Message -{0} Trace -{1}", ex.Message,ex.StackTrace);
+            }
         }
 
         // GET: Offer/Details/5
