@@ -7,7 +7,7 @@ namespace Freelance.Web.Extensions
     {
         public static TimeSpan ConvertToTimeSpan(this DateTime dateTime)
         {
-            return TimeSpan.Parse(dateTime.ToString("T"));
+            return new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
         }
     }
 }

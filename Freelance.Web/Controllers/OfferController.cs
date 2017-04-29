@@ -21,8 +21,8 @@ namespace Freelance.Web.Controllers
         {
             CreateMap<OfferViewModel, OfferServiceModel>()
                 .ForMember(item => item.Date, exp => exp.MapFrom(src => src.Date.Add(src.Time)))
-                .ReverseMap();
-               // .ForMember(item => item.Time, exp => exp.MapFrom(src => src.Date.ConvertToTimeSpan()));
+                .ReverseMap()
+                .ForMember(item => item.Time, exp => exp.MapFrom(src => src.Date.ConvertToTimeSpan()));
 
         }
 
