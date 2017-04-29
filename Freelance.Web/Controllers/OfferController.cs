@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Freelance.Service.Interfaces;
 using Freelance.Web.Models;
-using PagedList.Mvc;
-using PagedList;
 using AutoMapper;
 using Freelance.Service.ServicesModel;
 using Microsoft.AspNet.Identity;
@@ -44,8 +39,7 @@ namespace Freelance.Web.Controllers
         [Authorize(Roles = "freelancer, client")]
         public ActionResult Index(IndexState state)
         {
-            try
-            {
+            
                 var userId = User.Identity.GetUserId();
                 var listSetting = OfferService.GetList();
 
@@ -62,11 +56,7 @@ namespace Freelance.Web.Controllers
                 var pagginationList = new PagginationModelList<OfferViewModel>(state, list);
 
                 return View(pagginationList);
-            }
-            catch (Exception ex)
-            {
-                return Content(String.Format("Message -{0} Trace -{1}", ex.Message,ex.StackTrace));
-            }
+          
         }
 
         // GET: Offer/Details/5

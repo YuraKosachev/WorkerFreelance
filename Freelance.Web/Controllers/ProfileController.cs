@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Freelance.Web.Models;
-using PagedList.Mvc;
-using PagedList;
 using Microsoft.AspNet.Identity;
 using AutoMapper;
-using Freelance.Service;
 using Freelance.Service.ServicesModel;
 using Freelance.Service.Interfaces;
-using Freelance.Service.Services;
 using Freelance.FreelanceException;
 using Microsoft.Practices.Unity;
 using Freelance.Web.Extensions;
-//----------------
 
-using System.IO;
 
 
 namespace Freelance.Web.Controllers

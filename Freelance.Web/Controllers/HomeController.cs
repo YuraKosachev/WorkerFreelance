@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
-using Freelance.Service;
-using Freelance.Service.ServicesModel;
 using Freelance.Service.Interfaces;
 using Microsoft.Practices.Unity;
 using Freelance.Web.Models;
@@ -27,18 +22,6 @@ namespace Freelance.Web.Controllers
             return View(list);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+    
     }
 }
