@@ -65,7 +65,7 @@ namespace Freelance.Web.Controllers
             }
             catch (Exception ex)
             {
-                return Content(String.Format("Message -{0} Trace -{1}", ex.Message,ex.StackTrace);
+                return Content(String.Format("Message -{0} Trace -{1}", ex.Message,ex.StackTrace));
             }
         }
 
