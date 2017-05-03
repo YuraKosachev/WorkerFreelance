@@ -9,7 +9,7 @@
 <h4>Профиль</h4>
 <hr/>
 
-@using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId,FileName = Model.FileName }, FormMethod.Post, new { enctype = "multipart/form-data" }))
 { @Html.AntiForgeryToken()
 
     <div class="row">

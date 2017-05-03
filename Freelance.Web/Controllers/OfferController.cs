@@ -7,6 +7,8 @@ using AutoMapper;
 using Freelance.Service.ServicesModel;
 using Microsoft.AspNet.Identity;
 using Freelance.Web.Extensions;
+using Freelance.AppLogger;
+using System.Xml.Linq;
 
 namespace Freelance.Web.Controllers
 {
@@ -27,11 +29,13 @@ namespace Freelance.Web.Controllers
     {
         private IOfferService OfferService { get; set; }
         private IProfileService ProfileService { get; set; }
+        private ILogger Logger { get; set; }
         [InjectionConstructor]
-        public OfferController(IOfferService offerService, IProfileService profileService)
+        public OfferController(IOfferService offerService, IProfileService profileService,ILogger logger)
         {
             OfferService = offerService;
             ProfileService = profileService;
+            Logger = logger;
         }
 
 
@@ -39,7 +43,8 @@ namespace Freelance.Web.Controllers
         [Authorize(Roles = "freelancer, client")]
         public ActionResult Index(IndexState state)
         {
-            
+            try
+            {
                 var userId = User.Identity.GetUserId();
                 var listSetting = OfferService.GetList();
 
@@ -56,7 +61,14 @@ namespace Freelance.Web.Controllers
                 var pagginationList = new PagginationModelList<OfferViewModel>(state, list);
 
                 return View(pagginationList);
-          
+            }
+            catch (Exception ex)
+            {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
+            }
+
         }
 
         // GET: Offer/Details/5
@@ -78,6 +90,7 @@ namespace Freelance.Web.Controllers
             }
             catch (Exception ex)
             {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
                 Response.StatusCode = 500;
                 return Content(ex.Message);
             }
@@ -96,6 +109,7 @@ namespace Freelance.Web.Controllers
             }
             catch (Exception ex)
             {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
                 Response.StatusCode = 500;
                 return Content(ex.Message);
             }
@@ -112,9 +126,11 @@ namespace Freelance.Web.Controllers
                 OfferService.Delete(id);
                 return RedirectToAction("Index", state);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
     }

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<exceptions>
+  <exception id="23f66fd9-b874-4dd1-9d29-82fc2e64fe94" date="2017-05-03T15:53:15.4126664+03:00" type="System.Exception">
+    <message>Выдано исключение типа "System.Exception".</message>
+    <trace>   в Freelance.Provider.Providers.FreelanceProvider`1.Create(TModel item) в D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Provider\Providers\FreelanceProvider.cs:строка 25
+   в Freelance.Service.Services.FreelanceService`2.Create(TModelService item) в D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Service\Services\FreelanceService.cs:строка 27
+   в Freelance.Web.Controllers.CategoryController.Create(CategoryViewModel model, IndexState indexState) в D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Web\Controllers\CategoryController.cs:строка 99</trace>
+  </exception>
+</exceptions>

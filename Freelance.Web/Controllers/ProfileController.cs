@@ -7,7 +7,9 @@ using Freelance.Service.ServicesModel;
 using Freelance.Service.Interfaces;
 using Freelance.FreelanceException;
 using Microsoft.Practices.Unity;
+using Freelance.AppLogger;
 using Freelance.Web.Extensions;
+using System.Xml.Linq;
 
 
 
@@ -35,13 +37,16 @@ namespace Freelance.Web.Controllers
         private ICategoryService CategoryService { get; set; }
         private IProfileService ProfileService { get; set; }
         private ITextFilesService TextFileService { get; set; }
+        private ILogger Logger { get; set; }
 
         [InjectionConstructor]
-        public ProfileController(ICategoryService categoryService, IProfileService profileService, ITextFilesService textFileService)
+        public ProfileController(ICategoryService categoryService, IProfileService profileService, ITextFilesService textFileService,ILogger logger)
         {
             CategoryService = categoryService;
             ProfileService = profileService;
             TextFileService = textFileService;
+            Logger = logger;
+           
         }
 
 
@@ -49,37 +54,55 @@ namespace Freelance.Web.Controllers
         // GET: Profile
         public ActionResult Index(IndexState state)
         {
-            var listSetting = ProfileService.GetList();
-            if (!string.IsNullOrEmpty(state.SearchString))
+            try
             {
-                state.SearchString.Trim();
-                listSetting.Filter("User.UserFirstName.Contains(@0) OR User.UserSurname.Contains(@0) OR DescriptionProfile.Contains(@0)", state.SearchString);
+                var listSetting = ProfileService.GetList();
+                if (!string.IsNullOrEmpty(state.SearchString))
+                {
+                    state.SearchString.Trim();
+                    listSetting.Filter("User.UserFirstName.Contains(@0) OR User.UserSurname.Contains(@0) OR DescriptionProfile.Contains(@0)", state.SearchString);
+                }
+                if (state.TimeAvailability != null)
+                {
+                    listSetting.FilterAnd("TimeFrom <= @0 AND TimeTo >= @0", (TimeSpan)state.TimeAvailability);
+                }
+                if ((state.SortCategoryId != null) && (state.SortCategoryId != Guid.Empty))
+                {
+                    listSetting.FilterAnd("CategoryId == @0", (Guid)state.SortCategoryId);
+                }
+                state.Categories = CategoryService.Lookup();
+                state.Categories.Add(Guid.Empty, "All");
+                listSetting.Sort(state, "TimeFrom").Page(state);
+                var list = listSetting.StaticList<ProfileViewModel, ProfileServiceModel>(state);
+                var pagginationList = new PagginationModelList<ProfileViewModel>(state, list);
+                return View(pagginationList);
             }
-            if (state.TimeAvailability != null)
+            catch (Exception ex)
             {
-                listSetting.FilterAnd("TimeFrom <= @0 AND TimeTo >= @0", (TimeSpan)state.TimeAvailability);
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
-            if ((state.SortCategoryId != null) && (state.SortCategoryId != Guid.Empty))
-            {
-                listSetting.FilterAnd("CategoryId == @0", (Guid)state.SortCategoryId);
-            }
-            state.Categories = CategoryService.Lookup();
-            state.Categories.Add(Guid.Empty, "All");
-            listSetting.Sort(state, "TimeFrom").Page(state);
-            var list = listSetting.StaticList<ProfileViewModel, ProfileServiceModel>(state);
-            var pagginationList = new PagginationModelList<ProfileViewModel>(state, list);
-            return View(pagginationList);
         }
         [Authorize(Roles = "freelancer")]
         public ActionResult FreelancerProfiles(IndexState state)
         {
-            var listSetting = ProfileService.GetList();
-            listSetting.Filter("UserId == @0", User.Identity.GetUserId());
-            listSetting.Sort(state, "TimeFrom").Page(state);
-            var list = listSetting.StaticList<ProfileViewModel, ProfileServiceModel>(state);
-            var pagginationList = new PagginationModelList<ProfileViewModel>(state, list);
+            try
+            {
+                var listSetting = ProfileService.GetList();
+                listSetting.Filter("UserId == @0", User.Identity.GetUserId());
+                listSetting.Sort(state, "TimeFrom").Page(state);
+                var list = listSetting.StaticList<ProfileViewModel, ProfileServiceModel>(state);
+                var pagginationList = new PagginationModelList<ProfileViewModel>(state, list);
 
-            return View(pagginationList);
+                return View(pagginationList);
+            }
+            catch (Exception ex)
+            {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
+            }
         }
         // GET: Profile/Details/5
         [Authorize(Roles = "freelancer, client")]
@@ -90,13 +113,11 @@ namespace Freelance.Web.Controllers
                 var item = ProfileService.GetItem(id);
                 return View(Mapper.Map<ProfileViewModel>(item));
             }
-            catch (ItemNotFoundException e)
+            catch (Exception ex)
             {
-                return View();
-            }
-            catch
-            {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
 
         }
@@ -139,9 +160,11 @@ namespace Freelance.Web.Controllers
 
                 return RedirectToAction("FreelancerProfiles", state);
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
         [Authorize(Roles = "freelancer")]
@@ -155,13 +178,11 @@ namespace Freelance.Web.Controllers
                 item.IndexState.Categories = CategoryService.Lookup();
                 return View(item);
             }
-            catch (ItemNotFoundException e)
+            catch (Exception ex)
             {
-                return View();
-            }
-            catch (Exception e)
-            {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
 
         }
@@ -190,9 +211,11 @@ namespace Freelance.Web.Controllers
                 ProfileService.Update(Mapper.Map<ProfileServiceModel>(model));
                 return RedirectToAction("FreelancerProfiles", state);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
        
@@ -207,18 +230,22 @@ namespace Freelance.Web.Controllers
                 ProfileService.Delete(id);
                 return RedirectToAction("FreelancerProfiles", state);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
         public FileResult GetFile(string fileName, string userId)
         {
-            
+
             // Объект Stream
            
-            string file_type = String.Format("application/{0}", FileHelperExtension.GetExtension(fileName));
-            return File(TextFileService.GetFileStream(fileName,userId), file_type, fileName);
+                string file_type = String.Format("application/{0}", FileHelperExtension.GetExtension(fileName));
+                return File(TextFileService.GetFileStream(fileName, userId), file_type, fileName);
+          
+            
         }
        
     }

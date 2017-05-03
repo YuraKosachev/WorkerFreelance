@@ -14,7 +14,7 @@ namespace Freelance.Web
             folderConfig.UserFilesFolder = "textfiles";
             folderConfig.UserImagesFolder = "photos";
             FilePathConfiguration.SetPathConfiguration(folderConfig);
-            //FileProviderCfg.AppPath(HttpContext.Current.Server.MapPath(WebConfigurationManager.AppSettings["ImageStoreFolder"]));
+           
         }
     }
 }

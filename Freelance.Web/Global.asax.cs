@@ -18,6 +18,7 @@ namespace Freelance.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             MapperConfig.Configure();
             AppPath.SetAppPath();
+            LoggerConfig.Config();
         }
     }
 }

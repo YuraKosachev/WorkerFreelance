@@ -5,6 +5,7 @@ using Freelance.Service.DependencyServiceConfg;
 using Freelance.Service.Interfaces.AuthServices;
 using Freelance.Service.Interfaces;
 using Freelance.Service.Services;
+using Freelance.AppLogger;
 
 
 namespace Freelance.Web.App_Start
@@ -51,6 +52,8 @@ namespace Freelance.Web.App_Start
             container.RegisterType<IAdminFileService, AdminFileService>();
             container.RegisterType<ITextFilesService, TextFileService>();
 
+            //Logger 
+            container.RegisterType<ILogger, XmlLogger>();
             UnityDependencyConfig.RegisterTypes(container);
         }
     }

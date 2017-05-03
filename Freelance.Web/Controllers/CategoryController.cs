@@ -14,6 +14,8 @@ using Freelance.FreelanceException;
 using Microsoft.Practices.Unity;
 using Freelance.Web.Extensions;
 using Microsoft.AspNet.Identity;
+using System.Xml.Linq;
+using Freelance.AppLogger;
 
 namespace Freelance.Web.Controllers
 {
@@ -36,11 +38,13 @@ namespace Freelance.Web.Controllers
     {
         private ICategoryService Service { get; set; }
         private IAdminFileService FileService { get; set; }
+        private ILogger Logger { get; set; }
         [InjectionConstructor]
-        public CategoryController(ICategoryService service, IAdminFileService fileService)
+        public CategoryController(ICategoryService service, IAdminFileService fileService,ILogger logger)
         {
             Service = service;
             FileService = fileService;
+            Logger = logger;
         }
 
 
@@ -48,20 +52,24 @@ namespace Freelance.Web.Controllers
         // GET: Category
         public ActionResult Index(IndexState state)
         {
-            var listSetting = Service.GetList();
-            //add filter
-            listSetting.Sort(state, "NameCategory").Page(state);
-            var list = listSetting.StaticList<CategoryViewModel, CategoryServiceModel>(state);
-            var pagginationList = new PagginationModelList<CategoryViewModel>(state, list);
+            try {
+                var listSetting = Service.GetList();
+                //add filter
+                listSetting.Sort(state, "NameCategory").Page(state);
+                var list = listSetting.StaticList<CategoryViewModel, CategoryServiceModel>(state);
+                var pagginationList = new PagginationModelList<CategoryViewModel>(state, list);
 
-            return View(pagginationList);
+                return View(pagginationList);
+            }
+            catch (Exception ex)
+            {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
+            }
         }
 
-        // GET: Category/Details/5
-        //public ActionResult Details(Guid id)
-        //{
-        //    return View();
-        //}
+      
 
         // GET: Category/Create
         public ActionResult Create(IndexState state)
@@ -91,10 +99,14 @@ namespace Freelance.Web.Controllers
                 Service.Create(Mapper.Map<CategoryServiceModel>(model));
                 return RedirectToAction("Index");
             }
-            catch (Exception e)
+            
+                catch (Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
+        
         }
 
         // GET: Category/Edit/5
@@ -107,13 +119,11 @@ namespace Freelance.Web.Controllers
                 model.IndexState = state;
                 return View(model);
             }
-            catch (ItemNotFoundException e)
+            catch (Exception ex)
             {
-                return View();
-            }
-            catch
-            {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
 
 
@@ -137,9 +147,11 @@ namespace Freelance.Web.Controllers
                 Service.Update(Mapper.Map<CategoryServiceModel>(model));
                 return RedirectToAction("Index", model.IndexState);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
 
@@ -152,13 +164,11 @@ namespace Freelance.Web.Controllers
                 var item = Mapper.Map<CategoryViewModel>(Service.GetItem(id));
                 return View(item);
             }
-            catch (ItemNotFoundException e)
+            catch (Exception ex)
             {
-                return View();
-            }
-            catch
-            {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
 
         }
@@ -173,13 +183,11 @@ namespace Freelance.Web.Controllers
                 Service.Delete(id);
                 return RedirectToAction("Index",indexState);
             }
-            catch (ItemNotFoundException e)
+            catch (Exception ex)
             {
-                return View();
-            }
-            catch
-            {
-                return View();
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+                Response.StatusCode = 500;
+                return Content(ex.Message);
             }
         }
     }

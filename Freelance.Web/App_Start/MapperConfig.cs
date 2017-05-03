@@ -19,6 +19,7 @@ namespace Freelance.Web
                 cfg.AddProfile<CategoryServiceMapperProfile>();
                 cfg.AddProfile<OfferServiceMapperProfile>();
                 cfg.AddProfile<ProfileServiceMapperProfile>();
+                cfg.AddProfile<LoggerControllerMapperProfile>();
             });
         }
     }

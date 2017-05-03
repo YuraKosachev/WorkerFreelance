@@ -10,7 +10,7 @@
     Категорию
 </p>
 
-@using (Html.BeginForm(new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }))
+@using (Html.BeginForm(new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, ImageName = Model.ImageName}))
 {
     @Html.AntiForgeryToken()
     <div class="row">

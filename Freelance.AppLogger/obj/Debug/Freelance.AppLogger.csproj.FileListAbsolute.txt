@@ -1,0 +1,5 @@
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.AppLogger\bin\Debug\Freelance.AppLogger.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.AppLogger\bin\Debug\Freelance.AppLogger.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.AppLogger\obj\Debug\Freelance.AppLogger.csprojResolveAssemblyReference.cache
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.AppLogger\obj\Debug\Freelance.AppLogger.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.AppLogger\obj\Debug\Freelance.AppLogger.pdb

@@ -499,3 +499,5 @@ E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.We
 E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Web\obj\Debug\Freelance.Web.csprojResolveAssemblyReference.cache
 E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Web\obj\Debug\Freelance.Web.dll
 E:\УЧЕБА\Проект Sam Solutions\WFreelance\WorkerFreelance\Freelance.Web\obj\Debug\Freelance.Web.pdb
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Web\bin\Freelance.AppLogger.dll
+D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Web\bin\Freelance.AppLogger.pdb
