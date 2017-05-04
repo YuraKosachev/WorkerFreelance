@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using AutoMapper;
-using Freelance.Web.Models;
-using Freelance.AppLogger;
-using Microsoft.Practices.Unity;
-using System.Xml.Linq;
 using System.Web.Mvc;
+using Freelance.Web.Models;
+using AutoMapper;
+using System.Xml.Linq;
+using Microsoft.Practices.Unity;
+using Freelance.AppLogger;
 
 namespace Freelance.Web.Controllers
 {
@@ -40,22 +40,20 @@ namespace Freelance.Web.Controllers
 
         }
     }
-
-    [Authorize(Roles = "admin")]
-    public class LoggerController : Controller
+    public class AppLoggerController : Controller
     {
         private ILogger Logger { get; set; }
         // GET: Logger
         [InjectionConstructor]
-        public LoggerController(ILogger logger)
+        public AppLoggerController(ILogger logger)
         {
             Logger = logger;
         }
+        // GET: AppLogger
         public ActionResult Index()
         {
             var list = Logger.List().Select(item => Mapper.Map<LoggerViewModel>(item));
             return View(list);
         }
-        
     }
 }
