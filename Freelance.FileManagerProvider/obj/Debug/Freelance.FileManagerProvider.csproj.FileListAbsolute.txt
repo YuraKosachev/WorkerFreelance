@@ -28,3 +28,10 @@ D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\�
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.csprojResolveAssemblyReference.cache
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.dll
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.pdb
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\bin\Debug\Freelance.FileManagerProvider.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\bin\Debug\Freelance.FileManagerProvider.pdb
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\bin\Debug\Freelance.FreelanceException.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\bin\Debug\Freelance.FreelanceException.pdb
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.csprojResolveAssemblyReference.cache
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.FileManagerProvider\obj\Debug\Freelance.FileManagerProvider.pdb

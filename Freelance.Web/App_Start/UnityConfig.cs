@@ -51,6 +51,7 @@ namespace Freelance.Web.App_Start
             //file service
             container.RegisterType<IAdminFileService, AdminFileService>();
             container.RegisterType<ITextFilesService, TextFileService>();
+            container.RegisterType<IPhotoService, UserPhotoService>();
 
             //Logger 
             container.RegisterType<ILogger, XmlLogger>();

@@ -12,6 +12,7 @@ namespace Freelance.Web.Models
         public string UserId { get; set; }
         [Display(Name = "Имя фрилансера")]
         public string FreelancerName { get; set; }
+        public string UserName { get; set; }
         [Display(Name = "Номер телефона")]
         public string PhoneNumber { get; set; }
         [Required]
@@ -25,6 +26,7 @@ namespace Freelance.Web.Models
         public bool FreelancerConfirm { get; set; }
         public string NameCategory { get; set; }
         public string DescriptionCategory { get; set; }
-        public string CategoryImageName { get; set; }
+        public string FreelancerId { get; set; }
+        public string ImageName { get; set; }
     }
 }

@@ -4,17 +4,42 @@
     ViewBag.Title = "Edit";
 }
 
-<h2><span class="glyphicon glyphicon-edit"></span> РЕДАКТИРОВАТЬ</h2>
+@Html.Partial("_ImageEditorPartial")
 
-<h4>Профиль</h4>
-<hr/>
 
-@using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId,FileName = Model.FileName }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-{ @Html.AntiForgeryToken()
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/registration.png">
+    <div class="row m0">
+        <div class="container">
+            <h2 class="page-title" style="color:white;">Редактировать профиль</h2>
+        </div>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-xs-12">
+    </div>
+</section>
+<br />
 
+<section class="row" style="margin-bottom:60px;">
+
+    <div class="col-md-3 col-md-offset-2 col-xs-12">
+        <h3 class="checkout-heading">Изображение</h3>
+        <div class="col-md-12 col-xs-12">
+
+            <div class="actions" hidden>
+                <input type="file" id="uploadImage" data-type-file="image" value="Choose a file" accept="image/png" />
+            </div>
+
+            <a href="#" class="thumbnail">
+                @Html.Image(Model.ImageName, String.Format("upload/photos/{0}", Model.UserId), HelperImageExtension.Holder(360, 339), new { data_element_role = "imageContainer" })
+            </a>
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 col-xs-12">
+        @using (Html.BeginForm("Edit", "Profile", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty, CategoryId = Model.IndexState.SortCategoryId, FileName = Model.FileName }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="actions" hidden>
+                <input type="hidden" name="Image" />
+            </div>
+            @Html.AntiForgeryToken()
+            <h3 class="checkout-heading">Данные профиля</h3>
 
             <div class="form-horizontal">
 
@@ -29,8 +54,7 @@
 
                 <div class="form-group col-md-12">
                     @Html.LabelFor(model => model.DescriptionProfile)
-
-                    @Html.EditorFor(model => model.DescriptionProfile, new { htmlAttributes = new { @class = "form-control", placeholder = "Введите описание профиля" } })
+                    @Html.TextAreaFor(model => model.DescriptionProfile, 5, 101, new { @class = "form-control", placeholder = "Введите описание профиля" })
                     @Html.ValidationMessageFor(model => model.DescriptionProfile, "", new { @class = "text-danger" })
 
                 </div>
@@ -68,9 +92,9 @@
                 <div class="form-group col-md-12">
                     @Html.LabelFor(item => item.FileName)
                     <div class="input-group ">
-                        @Html.TextBoxFor(item => item.FileName, new { @class = "form-control", placeholder = "Выберите файл", data_insert = "fileName" })
+                        @Html.TextBoxFor(item => item.FileName, new { @class = "form-control", placeholder = "Выберите файл", data_insert = "fileName", disabled = "disabled" })
                         <span class="input-group-btn">
-                            <button type="button" data-source="file" class="btn btn-default">
+                            <button type="button" data-source="file" class="btn btn-default btn-sm">
                                 <span class="glyphicon glyphicon-paperclip"></span>
                             </button>
                         </span>
@@ -79,18 +103,21 @@
 
 
                 <div class="form-group col-md-12">
-                    <button type="submit" class="btn btn-success pull-right">Редактировать</button>
+                    <button type="submit" class="btn btn-primary pull-right">Редактировать</button>
                 </div>
             </div>
 
-        </div>
+        }
     </div>
-}
+</section>
 
-<div>
-    @Html.ActionLinkWithImage("Назад к списку", "FreelancerProfiles", "Profile", "glyphicon glyphicon-chevron-left", new { Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { @class = "btn btn-md btn-default" })
-</div>
+
+
+
 @section Scripts {
    @Scripts.Render("~/bundles/ProfileCreateEdit")
+@Scripts.Render("~/bundles/Exif")
+<script src="~/Scripts/croppie.min.js"></script>
+<script src="~/Scripts/ProfileImage.js"></script>
     
 }

@@ -4,88 +4,145 @@
     ViewBag.Title = "My profiles";
 }
 @Html.Partial("_DeleteCofirmModalProfile", Model.IndexState)
-<h2>Мои профили</h2>
+<!--Page Cover-->
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/registration.png">
+    <div class="row m0">
+        <div class="container">
+            <h2 class="page-title" style="color:white;">Профили</h2>
 
-<hr/>
-<div class="row">
-    <div class="col-xs-12 col-md-2">
-        @Html.ActionLinkWithImage("Создать профиль", "Create", "Profile", "glyphicon glyphicon-plus", Model.IndexState, new { @class = "btn btn-md btn-primary" })
+            <div style="margin-top:40px;">
+                @Html.ActionLink("Создать профиль", "Create", Model.IndexState, new { }, new { @class = "btn btn-md btn-primary" })
+            </div>
+        </div>
+
     </div>
-    <div class="col-xs-12 col-md-3">
-        <a href="@Url.Link("FreelancerProfiles", Model.IndexState, "Category.NameCategory")" class="btn btn-default btn-md active">
-            Сортировка:Категории <span class="@Html.GetSortClass(Model.IndexState, "Category.NameCategory")"></span>
-        </a>
-    </div>
-    <div class="col-xs-12 col-md-3">
-        <a href="@Url.Link("FreelancerProfiles", Model.IndexState, "TimeFrom")" class="btn btn-default btn-md active">
-            Сортировка:Время <span class="@Html.GetSortClass(Model.IndexState, "TimeFrom")"></span>
-        </a>
-    </div>
-</div>
-<hr/>
-
-
-        @if (Model.PageList.Count > 0)
-        {
-            foreach (var item in Model.PageList)
-            {
-                
-                <div class="row">
-                    <div class="col-md-offset-2 col-md-8 col-xs-12 profile">
-                        <div class="row profileline">
-                            <div class="col-md-3 col-xs-12" data-toggle="tooltip" data-placement="bottom" title="@item.CategoryDescription">
-                                <h4> @Html.DisplayFor(modelItem => item.CategoryName)</h4>
-                            </div>
-                            <div class="col-md-9 col-xs-12 text-right profiletime">
-                                <span class="glyphicon glyphicon-time"></span>
-                                <b>
-                                    @Html.DisplayFor(modelItem => item.TimeAvailability)
-                                </b>
-                            </div>
-                        </div>
-                        <div class="row profilebody">
-                           @Html.Partial("_ProfileViewModelPartial",item)
-
-                            <div class="col-md-3 col-xs-12 eq">
-
-                                <div class="btn-group">
-                                    <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown">
-                                        Выбрать действие <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Profile", "glyphicon glyphicon-edit", new { id = item.Id, Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { })</li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#" data-profile-id=@item.Id data-toggle="modal" data-target="#DeleteModal">
-                                                <span class="glyphicon glyphicon-trash"></span> Удалить
-                                            </a>
-
-                                        </li>
-                                    </ul>
-
-                                </div>
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            }
-        }
-        else
-        {
-            <h4>Список профилей пуст</h4>
-        }
-
-
-
-
+</section>
 <br />
-Страница @(Model.PageList.PageCount < Model.PageList.PageNumber ? 0 : Model.PageList.PageNumber) из @Model.PageList.PageCount
-
-@Html.PagedListPager(Model.PageList, page => Url.ActionToPage("FreelancerProfiles", Model.IndexState, page))
 
 
+
+<section class="row" style="margin-top:40px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-push-9 shop-sidebar">
+                <div class="row widget widget-categories">
+                    <h4 class="widget-title">Сортировка</h4>
+                    <ul class="nav nav-widget">
+                        <li>
+                            <i class="fa fa-angle-double-right"></i><a href="@Url.Link("FreelancerProfiles", Model.IndexState, "Category.NameCategory")">
+                                Категории <span class="@Html.GetSortClass(Model.IndexState, "Category.NameCategory")"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa fa-angle-double-right"></i><a href="@Url.Link("FreelancerProfiles", Model.IndexState, "TimeFrom")">
+                                Время <span class="@Html.GetSortClass(Model.IndexState, "TimeFrom")"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!---->
+            @{
+                var i = 0;
+                var count = Model.PageList.Count;
+            }
+            <div class="col-md-9 col-md-pull-3 shop-content">
+
+                <!--While-->
+                @if (Model.PageList.Count > 0)
+                {
+                    while (i < count)
+                    {
+                        <div class="row">
+                            @for (var j = 0; j < 3; j++, i++)
+                            {
+                                if (i == count)
+                                {
+                                    break;
+                                }
+                                <div class="col-sm-4 product">
+                                    <div class="img-holder row">
+                                        @Html.Image(Model.PageList[i].ImageName, String.Format("upload/photos/{0}", User.Identity.GetUserId()), HelperImageExtension.Holder(260, 239), new { @class = "product-img" })
+                                        @*<img src="images/Shop/2.jpg" alt="" class="product-img">*@
+                                        @*<div class="sale-new-tag">Подтвержден</div>*@
+                                        @*<div class="hover-box">
+                                            <div class="btn-holder"><div class="row m0"><a href="#" class="btn btn-outline blue">Add to Cart</a></div></div>
+                                                                    </div>*@
+                                    </div>
+                                    <a href="#">
+                                        <h4 class="pro-title">
+                                            @Html.DisplayFor(modelItem => Model.PageList[i].CategoryName)
+                                        </h4>
+                                    </a>
+                                    <div>
+                                        <span class="glyphicon glyphicon-time"></span>
+                                        <b>
+                                            @Html.DisplayFor(modelItem => Model.PageList[i].TimeAvailability)
+                                        </b>
+                                    </div>
+                                    <p class="pro-about">@Html.DisplayFor(modelItem => Model.PageList[i].DescriptionProfile)</p>
+
+                                    @*<div class="row m0 proRating">
+                                            <i class="fa fa-star starred"></i>
+                                            <i class="fa fa-star starred"></i>
+                                            <i class="fa fa-star starred"></i>
+                                            <i class="fa fa-star starred"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <h3 class="price"><del>$80.00</del>$65.00</h3>*@
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            @if (Model.PageList[i].FileName != null)
+                                            {
+                                                @Html.ActionLinkWithImage("", "GetFile", "Profile", "glyphicon glyphicon-paperclip", new { fileName = Model.PageList[i].FileName, Model.PageList[i].UserId }, new { @class = "btn btn-md btn-success" })
+                                            }
+                                        </div>
+                                        <!--Dropdown-->
+                                        <div class="btn-group col-md-7">
+                                            <div class="pull-right">
+                                                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+
+                                                <ul class="dropdown-menu ">
+                                                    <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Profile", "glyphicon glyphicon-edit", new { id = Model.PageList[i].Id, Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { })</li>
+                                                    <li>@Html.ActionLinkWithImage("Подробнее", "Details", "Profile", "glyphicon glyphicon-eye-open", new { id = Model.PageList[i].Id, Page = Model.IndexState.Page, SortAscending = Model.IndexState.SortAscending, SortProperty = Model.IndexState.SortProperty }, new { })</li>
+                                                    <li>
+                                                        <a href="#" data-profile-id="@Model.PageList[i].Id" data-toggle="modal" data-target="#DeleteModal">
+                                                            <span class="glyphicon glyphicon-trash"></span> Удалить
+                                                        </a>
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!--Drop-->
+                                    </div>
+                                </div>
+                            }
+                        </div>                  <!--While-->
+                            }
+                            }
+                            else
+                            {
+                            <h4>Список профилей пуст :(</h4>
+                            }
+                        
+                    </div>
+            <!---->
+                </div>
+            </div>
+        </section>
+<br />
+<section class="row">
+    <div class="col-md-11 col-md-offset-1 col-xs-12 ">
+        <div class="pull-left">
+            @Html.PagedListPager(Model.PageList, page => Url.ActionToPage("FreelancerProfiles", Model.IndexState, page))
+         </div>
+    </div>
+</section>
+<br/>
 @section Scripts {
 @Scripts.Render("~/bundles/Profile")
 }

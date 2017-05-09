@@ -1,46 +1,52 @@
 ﻿@model IndexState
+
+
+   <!--Widget-->
 @using (Html.BeginForm())
 {
-    <div class="form-group">
-
+    <div class="widget widget-product-search row">
+        <h4 class="widget-title">Поиск</h4>
         <div class="input-group">
             <span class="input-group-btn">
-                <button class="btn btn-danger remove" data-remove-content="SearchString" type="button">
+                <button class="btn btn-default btn-sm remove" data-remove-content="SearchString" type="button">
                     <span class="glyphicon glyphicon-remove removeicon"></span>
                 </button>
             </span>
-            @Html.TextBoxFor(model => model.SearchString, new { @class = "form-control", placeholder = "Search", })
-           
+            @Html.TextBoxFor(model => Model.SearchString, new { @class = "form-control", placeholder = "Search", })
+
         </div>
 
     </div>
+                    <div class="widget widget-product-search row">
+                        <h4 class="widget-title">Время</h4>
+
+                        <div class='input-group date timeFilterFrom'>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-sm remove" data-remove-content="TimeAvailability" type="button">
+                                    <span class="glyphicon glyphicon-remove removeicon"></span>
+                                </button>
+                            </span>
+                            @Html.TextBoxFor(model => model.TimeAvailability, new { @class = "form-control", placeholder = "Выберите время" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+
+                    </div>
+                <!--Widget-->
+                    <div class="row widget widget-price-filter">
+                        <div class="price-filter-inner row m0">
+                            <h4 class="widget-title">Категории</h4>
+                            @Html.DropDownListFor(model => model.SortCategoryId, new SelectList(Model.Categories, "key", "value", Model.SortCategoryId), new { @class = "form-control dropdown-select" })
+                            <br />
+                            <input type="submit" value="Filter" class="btn btn-default btn-sm">
+
+                        </div>
+                    </div>
+}
+<!--Widget-->
 
 
-    <div class="form-group">
-
-        <div class='input-group date timeFilterFrom'>
-            <span class="input-group-btn">
-                <button class="btn btn-danger remove" data-remove-content="TimeAvailability" type="button">
-                    <span class="glyphicon glyphicon-remove removeicon"></span>
-                </button>
-            </span>
-            @Html.TextBoxFor(model => model.TimeAvailability, new { @class = "form-control", placeholder = "Выберите время" })
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-time"></span>
-            </span>
-        </div>
-
-    </div>
-    <div class="form-group">
-        
-            
-            @Html.DropDownListFor(model => model.SortCategoryId, new SelectList(Model.Categories, "key", "value", Model.SortCategoryId), new { @class = "form-control dropdown-select" })
-       
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-default">Фильтр</button>
-    </div>
 
 
-                }
 

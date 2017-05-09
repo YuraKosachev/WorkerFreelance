@@ -8,10 +8,10 @@
             <div class="modal-body">
 
 
-                <div class="container">
+               
 
                     <div class="row">
-                        <div class="col-lg-6 col-xs-12">
+                        <div class="col-md-12">
                             <div class="form-group">
 
                                 <div class='input-group date time'>
@@ -23,7 +23,7 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-6 col-xs-12">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <div class='input-group date dayofweek'>
                                     @Html.TextBox("Date", new { }, new { @class = "form-control", placeholder = "Выберите дату" })
@@ -34,21 +34,21 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group col-md-12">
+                            @Html.TextArea("Description", "", 5, 101, new { @class = "form-control", placeholder = "Введите описание необходимой работы" })
+                        </div>
                     </div>
-                    <div class="form-group">
-                        @Html.TextArea("Description", new { @class = "form-control", placeholder = "Введите описание необходимой работы" })
-                    </div>
 
 
 
 
-
-                </div>
+                
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary" data-bt-role="submit">Бронировать</button>
+                <button type="button" class="btn btn-primary"  data-loading-text="Бронирование..." autocomplete="off" data-bt-role="submit">Бронировать</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

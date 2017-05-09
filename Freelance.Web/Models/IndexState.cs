@@ -16,6 +16,7 @@ namespace Freelance.Web.Models
         public IDictionary<Guid, string> Categories { get; set; }
         public Guid? SortCategoryId { get; set; }
         public TimeSpan? TimeAvailability { get; set; }
+        public AppErrorView Error { get; set; }
         public virtual RouteValueDictionary GetFilters()
         {
             return new RouteValueDictionary();

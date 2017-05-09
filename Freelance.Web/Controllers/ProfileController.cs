@@ -29,7 +29,7 @@ namespace Freelance.Web.Controllers
     }
 
 
-
+    [ValidateInput(false)]
 
     public class ProfileController : Controller
     {
@@ -37,14 +37,16 @@ namespace Freelance.Web.Controllers
         private ICategoryService CategoryService { get; set; }
         private IProfileService ProfileService { get; set; }
         private ITextFilesService TextFileService { get; set; }
+        private IPhotoService PhotoService { get; set; }
         private ILogger Logger { get; set; }
 
         [InjectionConstructor]
-        public ProfileController(ICategoryService categoryService, IProfileService profileService, ITextFilesService textFileService,ILogger logger)
+        public ProfileController(ICategoryService categoryService, IProfileService profileService, ITextFilesService textFileService,ILogger logger, IPhotoService photoService)
         {
             CategoryService = categoryService;
             ProfileService = profileService;
             TextFileService = textFileService;
+            PhotoService = photoService;
             Logger = logger;
            
         }
@@ -80,8 +82,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
         [Authorize(Roles = "freelancer")]
@@ -100,8 +103,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
         // GET: Profile/Details/5
@@ -116,8 +120,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
 
         }
@@ -155,7 +160,11 @@ namespace Freelance.Web.Controllers
                     model.FileName = TextFileService.Create(result.FileContent, User.Identity.GetUserId(), result.FileExtension);
                 }
 
-
+                if (model.Image != null)
+                {
+                    var fileName = PhotoService.Create(model.Image, User.Identity.GetUserId(), img => Convert.FromBase64String(img));
+                    model.ImageName = fileName;
+                }
                 ProfileService.Create(Mapper.Map<ProfileServiceModel>(model));
 
                 return RedirectToAction("FreelancerProfiles", state);
@@ -163,8 +172,8 @@ namespace Freelance.Web.Controllers
             catch(Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
         [Authorize(Roles = "freelancer")]
@@ -181,8 +190,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
 
         }
@@ -214,8 +224,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
        
@@ -233,8 +244,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
         public FileResult GetFile(string fileName, string userId)

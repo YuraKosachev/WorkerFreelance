@@ -3,45 +3,57 @@
 @{
     ViewBag.Title = "Выполнить вход";
 }
+  <!--Page Cover-->
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/login.png">
+    <div class="row m0">
+        <div class="container">
 
-<h2>@ViewBag.Title.</h2>
-<h4>Используйте локальную учетную запись для входа.</h4>
-<hr />
-<div class="row">
-    <div class="col-md-offset-3 col-md-6 col-xs-12">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder="Введите email" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    
-                </div>
-                <div class="form-group">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Введите пароль" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                </div>
-                <div class="form-group">
-                        <input type="submit" value="Выполнить вход" class="btn btn-default pull-right" />
-                </div>
-                <div class="form-group">
-                    @Html.ActionLink("Регистрация нового пользователя", "Register")
-                </div>
-               
-       
-            }
-        </section>
+            <h2 class="page-title" style="color:white;">Выполнить вход</h2>
+
+        </div>
+
     </div>
-</div>
+</section>
+<br/>
+<section style="margin-bottom:60px;">
+    <div class="row checkout-form">
+        <div class="col-md-offset-2 col-md-4 col-xs-12">
+
+            <section id="loginForm">
+                <h3 class="checkout-heading">Данные аккаунта</h3>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", placeholder = "Введите email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", placeholder = "Введите пароль" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="submit" value="Войти" class="btn btn-default pull-right" />
+                    </div>
+                    
+
+
+                }
+            </section>
+        </div>
+        <div class="col-md-offset-1 col-md-3 col-xs-12">
+            <h3 class="checkout-heading">Информация</h3>
+            <p>
+                Если у Вас нет учетной записи. Заведите ее, пройдя
+                @Html.ActionLink("Регистрацию", "Register")
+            </p>
+        </div>
+    </div>
+</section>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

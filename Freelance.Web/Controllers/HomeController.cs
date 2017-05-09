@@ -10,6 +10,7 @@ using System.Xml.Linq;
 
 namespace Freelance.Web.Controllers
 {
+    [ValidateInput(false)]
     public class HomeController : Controller
     {
         private ILogger Logger { get; set; }
@@ -21,17 +22,22 @@ namespace Freelance.Web.Controllers
             CategoryService = categoryService;
             Logger = logger;
         }
-        public ActionResult Index()
+        public ActionResult Index(string error)
         {
             try {
                 var list = CategoryService.GetList().List().Select(item => Mapper.Map<CategoryViewModel>(item)).ToList();
-                return View(list);
+                var indexList = new IndexList {
+                    List = list,
+                    Error =error
+                    
+                };
+                return View(indexList);
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return View(IndexList.Empty(error));
             }
         }
 

@@ -28,3 +28,9 @@ D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\�
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.csprojResolveAssemblyReference.cache
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.dll
 D:\Новая папка\УЧЕБА\ПРОЕКТ SAM SOLURIONS\WorkerFreelance\Новая папка\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.pdb
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\bin\Debug\Freelance.Extensions.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\bin\Debug\Freelance.Extensions.pdb
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\bin\Debug\System.Linq.Dynamic.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.csprojResolveAssemblyReference.cache
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.dll
+E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Extensions\obj\Debug\Freelance.Extensions.pdb

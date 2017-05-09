@@ -18,10 +18,10 @@
     });
 
     $('button[data-source="file"]').on("click", function (e) {
-        $("input[type='file']").trigger('click');
+        $("#upload").trigger('click');
     });
 
-    $("input[type='file']").on("change", function (data) {
+    $("#upload").on("change", function (data) {
 
         if ($(this)[0].files.length == 0) {
             $('input[data-insert="fileName"]').val("");

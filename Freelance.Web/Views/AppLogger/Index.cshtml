@@ -1,43 +1,69 @@
-﻿@model IEnumerable<LoggerViewModel>
+﻿@model IPagedList<LoggerViewModel>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Логгер</h2>
-<hr />
-<div class="panel-group" id="accordion">
-    @foreach (var item in Model)
-    {
-        <div class="panel panel-default">
-            <div class="panel-heading row">
-                <div class="col-md-9">
+<!--Page Cover-->
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/logger.png">
+    <div class="row m0">
+        <div class="container">
 
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                            @item.ExceptionType
-                        </a>
-                    </h4>
-                </div>
-                <div class="col-md-3">
-                    <button class="btn btn-primary btn-xs pull-right">Кнопочка</button>
-                </div>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="row" style="padding:15px 15px 15px 15px;">
-                    <div class="col-md-6">
-                        @Html.DisplayFor(i => item.ExceptionMessage);
+            <h2 class="page-title" style="color:white;">Логгер</h2>
+           
+        </div>
+
+    </div>
+</section>
+<br />
+<section class="row" style="margin-top:40px;">
+    <div class="col-md-10 col-xs-12 col-md-offset-1">
+        <div class="panel-group " data-panel-role="accordion" id="accordion">
+            @foreach (var item in Model)
+            {
+
+                <div class="panel panel-default">
+                    <div class="panel-heading row">
+                        <div class="col-md-9">
+
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#@item.ExceptionId">
+                                    @item.ExceptionType
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="col-md-3">
+                            @*<button class="btn btn-primary btn-xs pull-right">Кнопочка</button>*@
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="pull-right">
-                            @Html.DisplayFor(i=>item.DateTimeOfCreate)
+                    <div class="panel-collapse collapse" id="@item.ExceptionId">
+                        <div class="row" style="padding:15px 15px 15px 15px;">
+                            <div class="col-md-6">
+                                @Html.DisplayFor(i => item.ExceptionMessage);
+                            </div>
+                            <div class="col-md-6">
+                                <div class="pull-right">
+                                    @Html.DisplayFor(i => item.DateTimeOfCreate)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            @Html.DisplayFor(i => item.ExceptionStackTrace);
                         </div>
                     </div>
                 </div>
-                
-                <div class="panel-body">
-                    @Html.DisplayFor(i => item.ExceptionStackTrace);
-                </div>
-            </div>
+
+            }
+        </div>     
         </div>
-    }
-</div>
+    </section>
+<br />
+<section class="row">
+    <div class="col-md-10 col-md-offset-2 col-xs-12 ">
+        <div class="pull-left">
+            @Html.PagedListPager(Model, page => Url.Action("Index",new { page}))
+        </div>
+    </div>
+
+</section>
+<br />

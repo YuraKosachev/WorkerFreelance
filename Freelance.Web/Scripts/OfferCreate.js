@@ -25,7 +25,6 @@
         e.stopImmediatePropagation();
         var button = $(this);
         var attrValue = button.attr('data-remove-content');
-        console.log(attrValue);
         $('input[name="' + attrValue + '"]').val("");
 
     });
@@ -79,6 +78,7 @@
 
 
     $('[data-bt-role="submit"]').on('click', function () {
+        var $btn = $(this).button('loading');
         var data = {
             ProfileId:profileId,
             Time:$('[name="Time"]').val(),
@@ -89,12 +89,11 @@
         
         $.post(urls.OfferCreateUrl, data)
             .success(function (suc) {
-
+                $btn.button('reset')
                 $('#OfferCreate').modal('hide');
             })
-            .error(function (error) {
-
-                console.log(error);
+            .error(function (data) {
+                location.replace("Home?error='Что-то с ajax'");
         });
        
 

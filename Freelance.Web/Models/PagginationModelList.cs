@@ -18,5 +18,11 @@ namespace Freelance.Web.Models
             PageList = pageList;
         }
 
+        public static PagginationModelList<TViewModel> Empty(IndexState state)
+        {
+            var list = new StaticPagedList<TViewModel>(new List<TViewModel>(), 0, 0, 0);
+            return new PagginationModelList<TViewModel>(state,list);
+        }
+
     }
 }

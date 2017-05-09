@@ -15,7 +15,7 @@
         UserId:null
     };
     $('[data-offer-confim="#ConfirmOffer"]').on('click', function () {
-        DataConfirm.Id = $(this).attr("data-offer-id");
+        DataConfirm.Id = $(this).attr("data-off-id");
         DataConfirm.Date = $(this).attr("data-confirm-date");
         DataConfirm.ProfileId = $(this).attr("data-confirm-ProfileId");
         DataConfirm.UserId = $(this).attr("data-confirm-UserId");
@@ -29,18 +29,26 @@
 
     $('[data-bt-role="confirm"]').on("click", function (e) {
         e.stopPropagation();
+        var $btn = $(this).button('loading');
         $.post("Offer/Confirm", DataConfirm)
             .success(function (data) {
-                var button = $('[data-offer-id="' + data.OfferId + '"]');
-                button.removeClass("btn-primary");
-                button.addClass("btn-success disabled");
-                button.text("Подтвержден!");
 
+                var obj = $('[data-offer-id="' + data.OfferId + '"]');
+          
+                if (obj.hasClass("notcofirmed"))
+                { 
+                obj.removeClass("notcofirmed");
+                obj.addClass("cofirmed");
+                obj.text("Подтвержден");
+
+                }
+               
+                $btn.button('reset');
             $("#ConfirmOffer").modal('hide');
         })
             .error(function (error) {
                 //
-                console.log(error);
+                location.replace("Home?error='Что-то с ajax'");
             });
 
     });

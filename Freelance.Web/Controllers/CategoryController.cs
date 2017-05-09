@@ -32,7 +32,7 @@ namespace Freelance.Web.Controllers
         }
 
     }
-
+    [ValidateInput(false)]
     [Authorize(Roles = "admin")]
     public class CategoryController : Controller
     {
@@ -58,14 +58,16 @@ namespace Freelance.Web.Controllers
                 listSetting.Sort(state, "NameCategory").Page(state);
                 var list = listSetting.StaticList<CategoryViewModel, CategoryServiceModel>(state);
                 var pagginationList = new PagginationModelList<CategoryViewModel>(state, list);
-
+              
                 return View(pagginationList);
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
 
@@ -103,8 +105,9 @@ namespace Freelance.Web.Controllers
                 catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         
         }
@@ -112,18 +115,19 @@ namespace Freelance.Web.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(Guid id, IndexState state)
         {
+            
             try
             {
                 var category = Service.GetItem(id);
-                var model = Mapper.Map<CategoryViewModel>(category);
+                 var model = Mapper.Map<CategoryViewModel>(category);
                 model.IndexState = state;
                 return View(model);
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
 
 
@@ -150,8 +154,9 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
 
@@ -167,8 +172,8 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
 
         }
@@ -186,8 +191,8 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
     }

@@ -18,6 +18,7 @@ namespace Freelance.Provider.EntityModels
         public TimeSpan TimeFrom { get; set; }
         public TimeSpan TimeTo { get; set; }
         public string FileName { get; set; }
+        public string ImageName { get; set; }
 
         //navi setting
 

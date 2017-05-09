@@ -7,7 +7,7 @@ using Freelance.Service.Interfaces;
 using Microsoft.Practices.Unity;
 using Freelance.FileManagerProvider.Interfaces;
 
-namespace Freelance.Service.Services.FileService
+namespace Freelance.Service.Services
 {
     public class UserPhotoService : FreelanceFileService, IPhotoService
     {

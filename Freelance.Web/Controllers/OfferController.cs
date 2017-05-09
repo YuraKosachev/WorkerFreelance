@@ -24,7 +24,7 @@ namespace Freelance.Web.Controllers
         }
 
     }
-
+   [ValidateInput(false)]
     public class OfferController : Controller
     {
         private IOfferService OfferService { get; set; }
@@ -65,8 +65,8 @@ namespace Freelance.Web.Controllers
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
 
         }
@@ -86,13 +86,14 @@ namespace Freelance.Web.Controllers
                 // TODO: Add insert logic here
                 model.UserId = User.Identity.GetUserId();
                 var offerId = OfferService.Create(Mapper.Map<OfferServiceModel>(model));
+           
                 return new JsonResult { Data = new { OfferId = offerId } };
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
                 Response.StatusCode = 500;
-                return Content(ex.Message);
+                return Content(ex.Message);//new JsonResult { Data = new { ErrorMessage = ex.Message } };
             }
         }
 
@@ -105,13 +106,15 @@ namespace Freelance.Web.Controllers
 
                 model.FreelancerConfirm = true;
                 OfferService.Update(Mapper.Map<OfferServiceModel>(model));
+              
                 return new JsonResult { Data = new { OfferId = model.Id } };
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
                 Response.StatusCode = 500;
-                return Content(ex.Message);
+                return new JsonResult {Data = new { ErrorMessage = ex.Message } };
+             
             }
         }
      
@@ -129,8 +132,8 @@ namespace Freelance.Web.Controllers
             catch(Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
-                Response.StatusCode = 500;
-                return Content(ex.Message);
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
     }

@@ -1,0 +1,93 @@
+﻿@model ProfileViewModel
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Details";
+}
+@Html.Partial("_OfferCreatePartial")
+   <!--Page Cover-->
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/description.png">
+    <div class="row m0">
+        <div class="container">
+            <h2 class="page-title">Описание профиля</h2>
+        </div>
+    </div>
+</section>
+<section class="row">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 col-md-offset-2 shop-content col-xs-12">
+                <div class="row m0">
+                    <div class="media product product-details">
+                        <div class="media-left">
+                            <div class="img-holder">
+                                @Html.Image(Model.ImageName, String.Format("upload/photos/{0}", Model.UserId), HelperImageExtension.Holder(360, 339), new { @class = "product-img" })
+                               
+
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="pro-title">@Html.DisplayFor(model => model.CategoryName)</h3>
+                            <h4 class="pro-title">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <b>
+                                    @Html.DisplayFor(model => model.FreelancerName)
+                                </b>
+                            </h4>
+                            <h4 class="pro-title">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <b>
+                                    @Html.DisplayFor(model => model.TimeAvailability)
+                                </b>
+                            </h4>
+                            <h4 class="pro-title">
+                                <span class="glyphicon glyphicon-phone-alt"></span>
+                                <b>
+                                    @Html.DisplayFor(model => model.PhoneNumber)
+                                </b>
+                            </h4>
+
+                            @*<p class="pro-about">@Html.DisplayFor(model => model.CategoryDescription)</p>*@
+                            <div class="row m0 quantity-cart">
+                                @if (User.IsInRole("client"))
+                                {
+                                    <button class="btn btn-default" data-offer-modal="#OfferCreate"
+                                            data-time-from-h="@Model.TimeFrom.Hours"
+                                            data-time-from-m="@Model.TimeFrom.Minutes"
+                                            data-time-to-h="@Model.TimeTo.Hours"
+                                            data-time-to-m="@Model.TimeTo.Minutes"
+                                            data-profile-id="@Model.Id">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        Бронировать
+                                    </button>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m0 shop-tabs">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Описание</a></li>
+
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="description">
+                            <h4 class="tab-title">Описание профиля</h4>
+                            <p>@Html.DisplayFor(model => model.DescriptionProfile)</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/Profile")
+}

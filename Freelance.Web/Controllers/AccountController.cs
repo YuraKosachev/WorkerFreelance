@@ -19,6 +19,7 @@ using AutoMapper;
 
 namespace Freelance.Web.Controllers
 {
+    [ValidateInput(false)]
     [Authorize]
     public class AccountController : AuthController
     {
@@ -57,23 +58,32 @@ namespace Freelance.Web.Controllers
             //    RememberMe = model.RememberMe
             //};
 
-
-            var result = await SignInManageService.PassSignInAsync(Mapper.Map<LoginServiceModel>(model), false);
-
-            switch (result)
+            try
             {
-                case SignInStatus.Success:
+                var result = await SignInManageService.PassSignInAsync(Mapper.Map<LoginServiceModel>(model), false);
 
-                    SetUserName(model.Email, isRegistred: true);
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Неудачная попытка входа.");
-                    return View(model);
+                switch (result)
+                {
+                    case SignInStatus.Success:
+
+                        SetUserName(model.Email, isRegistred: true);
+                        return RedirectToLocal(returnUrl);
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Неудачная попытка входа.");
+                        return View(model);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
             }
         }
         private void SetUserName(string name, bool isRegistred)
@@ -163,29 +173,37 @@ namespace Freelance.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var user = Mapper.Map<UserServiceModel>(model);//new User { UserName = model.Email, Email = model.Email, UserSurname = model.Surname,UserFirstName = model.Name,PhoneNumber = model.PhoneNumber };
-                var result = await UserManageService.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                if (ModelState.IsValid)
                 {
+                    var user = Mapper.Map<UserServiceModel>(model);//new User { UserName = model.Email, Email = model.Email, UserSurname = model.Surname,UserFirstName = model.Name,PhoneNumber = model.PhoneNumber };
+                    var result = await UserManageService.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
 
-                    SetUserName(user.UserFirstName, isRegistred: false);
-                    await UserManageService.AddToRoleAsync(user.Id, model.Role);
-                    await SignInManageService.SignInAsync(user, isPersistent: false, rememberBrowser: false);//SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                        SetUserName(user.UserFirstName, isRegistred: false);
+                        await UserManageService.AddToRoleAsync(user.Id, model.Role);
+                        await SignInManageService.SignInAsync(user, isPersistent: false, rememberBrowser: false);//SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    // Дополнительные сведения о том, как включить подтверждение учетной записи и сброс пароля, см. по адресу: http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Отправка сообщения электронной почты с этой ссылкой
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Подтверждение учетной записи", "Подтвердите вашу учетную запись, щелкнув <a href=\"" + callbackUrl + "\">здесь</a>");
-                    return RedirectToAction("Index", "Home");
+                        // Дополнительные сведения о том, как включить подтверждение учетной записи и сброс пароля, см. по адресу: http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Отправка сообщения электронной почты с этой ссылкой
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        // await UserManager.SendEmailAsync(user.Id, "Подтверждение учетной записи", "Подтвердите вашу учетную запись, щелкнув <a href=\"" + callbackUrl + "\">здесь</a>");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
                 }
-                AddErrors(result);
-            }
 
-            model.Roles = GetRoles();
-            return View(model);
+                model.Roles = GetRoles();
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
+            }
         }
 
         //

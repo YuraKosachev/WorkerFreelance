@@ -4,81 +4,99 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Категории</h2>
+<!--Page Cover-->
+<section class="row page-cover" data-bgimage="/upload/app/page-cover/categories.png">
+    <div class="row m0">
+        <div class="container">
 
-<hr />
-<div class="row">
-    <div class="col-xs-12 col-md-3">
-        @Html.ActionLinkWithImage("Создать категорию", "Create", "Category", "glyphicon glyphicon-plus", Model.IndexState, new { @class = "btn btn-md btn-primary" })
+            <h2 class="page-title">Категории</h2>
+            <div style="margin-top:40px;">
+                @Html.ActionLink("Создать категорию","Create",Model.IndexState,new { }, new { @class = "btn btn-md btn-primary" })
+            </div>
+        </div>
+
     </div>
-    <div class="col-xs-12 col-md-9">
-    <a href="@Url.Link("Index", Model.IndexState, "NameCategory")" class="btn btn-default btn-md active">
-        Сортировка:Категории <span class="@Html.GetSortClass(Model.IndexState, "NameCategory")"></span>
-    </a>
-    </div>
-</div>
-<hr />
+</section>
+<br />
 <!------->
 @Html.Partial("_DeleteCofirmModalPartial", Model.IndexState)
-@foreach (var item in Model.PageList)
-{
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6 col-xs-12 ">
-            <div class="row">
-                <div class="col-md-3 col-xs-12">
-                    @Html.Image(item.ImageName, "upload/app", HelperImageExtension.Holder(64, 73), new { width = 64, height = 73 })
-                </div>
-                <div class="col-md-6 col-xs-12">
-                    <h4>@Html.DisplayFor(modelItem => item.NameCategory)</h4>
-                    <p>@Html.DisplayFor(modelItem => item.DescriptionCategory)</p>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <div class="btn-group">
-                        <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown">
-                            Выбрать действие <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Category", "glyphicon glyphicon-edit", new { id = item.CategoryId, indexState = Model.IndexState }, new { })</li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#" data-category-id=@item.CategoryId data-toggle="modal" data-target="#DeleteModal">
-                                    <span class="glyphicon glyphicon-trash"></span> Удалить
-                                </a>
-                                @*@Html.ActionLinkWithImage("Удалить", "#", "", "glyphicon glyphicon-trash", new { }, new { data_category_id = item.CategoryId, data_toggle = "modal", data_target = "#DeleteModal" })*@
-                            </li>
-                        </ul>
+
+<section class="row" style="margin-top:40px;">
+    <div class="col-md-6 col-md-offset-2 col-xs-12">
+
+            @foreach (var item in Model.PageList)
+            {
+                <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                        @Html.Image(item.ImageName, "upload/app", HelperImageExtension.Holder(64, 73), new { width = 64, height = 73 })
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <h4>@Html.DisplayFor(modelItem => item.NameCategory)</h4>
+                        <p>@Html.DisplayFor(modelItem => item.DescriptionCategory)</p>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <div class="btn-group">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                Действие <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLinkWithImage("Редактировать", "Edit", "Category", "glyphicon glyphicon-edit", new { id = item.CategoryId, indexState = Model.IndexState }, new { })</li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#" data-category-id=@item.CategoryId data-toggle="modal" data-target="#DeleteModal">
+                                        <span class="glyphicon glyphicon-trash"></span> Удалить
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>
+                <br />
+            }
 
-            </div>
+        </div>
+    <div class="col-md-3 col-md-offset-1  col-xs-12">
+        <div class="row widget widget-categories">
+            <h4 class="widget-title">Сортировка</h4>
+            <ul class="nav nav-widget">
+                <li>
+                    <i class="fa fa-angle-double-right"></i><a href="@Url.Link("Index", Model.IndexState, "NameCategory")">
+                        Категории <span class="@Html.GetSortClass(Model.IndexState, "NameCategory")"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    
+</section>
+<br/>
+<section class="row">
+    <div class="col-md-10 col-md-offset-2 col-xs-12 ">
+        <div class="pull-left"> 
+            @Html.PagedListPager(Model.PageList, page => Url.ActionToPage("Index", Model.IndexState, page))
         </div>
     </div>
-    <br />
-}
-<!------->
+
+</section>
+<br/>
+        @section Scripts {
+            <script type="text/javascript">
+                $(function () {
 
 
+                    $('a[data-toggle="modal"]').on('click', function (e) {
+
+                        var deleteCategoryId = $(this).attr('data-category-id');
+                        $('input[name="id"]').val(deleteCategoryId);
+                    });
 
 
-<br />
-    Страница @(Model.PageList.PageCount < Model.PageList.PageNumber ? 0 : Model.PageList.PageNumber) из @Model.PageList.PageCount
-
-    @Html.PagedListPager(Model.PageList, page => Url.ActionToPage("Index", Model.IndexState, page))
-
-
-    @section Scripts {
-        <script type="text/javascript">
-            $(function () {
-
-
-                $('a[data-toggle="modal"]').on('click', function (e) {
-
-                    var deleteCategoryId = $(this).attr('data-category-id');
-                    $('input[name="id"]').val(deleteCategoryId);
                 });
-
-
-            });
-        </script>
-    }
+            </script>
+        }

@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using PagedList;
 using Freelance.Web.Models;
 using AutoMapper;
 using System.Xml.Linq;
@@ -50,10 +53,21 @@ namespace Freelance.Web.Controllers
             Logger = logger;
         }
         // GET: AppLogger
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var list = Logger.List().Select(item => Mapper.Map<LoggerViewModel>(item));
-            return View(list);
+            try
+            {
+                if (page == null)
+                    page = 1;
+                var list = Logger.List().Select(item => Mapper.Map<LoggerViewModel>(item)).OrderByDescending(x=>x.DateTimeOfCreate).ToPagedList<LoggerViewModel>((int)page,10);
+                return View(list);
+            }
+            catch (Exception ex)
+            {
+                Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
+
+                return RedirectToAction("Index", "Home", new { error = ex.Message });
+            }
         }
     }
 }

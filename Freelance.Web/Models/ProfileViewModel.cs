@@ -30,6 +30,7 @@ namespace Freelance.Web.Models
         [Display(Name = "Прикрепить файл")]
         public string FileName { get; set; }
         public string ImageName { get; set; }
+        public string Image { get; set; }
         //public IDictionary<Guid, string> Categories { get; set; }
         [Display(Name = "Время доступности от")]
         public TimeSpan TimeFrom { get; set; }
