@@ -48,7 +48,7 @@
         })
             .error(function (error) {
                 //
-                location.replace("Home?error='Что-то с ajax'");
+                location.replace("Home?error="+error);
             });
 
     });

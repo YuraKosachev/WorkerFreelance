@@ -85,15 +85,16 @@
             Date:$('[name="Date"]').val(),
             Description:$('[name="Description"]').val()
         };
-       
+        var urlerrorscr = $('[name="UrlErrorScr"]').val();
+        var urlcreateoffer = $('[name="CreateOffer"]').val();
         
-        $.post(urls.OfferCreateUrl, data)
+        $.post(urlcreateoffer, data)
             .success(function (suc) {
                 $btn.button('reset')
                 $('#OfferCreate').modal('hide');
             })
-            .error(function (data) {
-                location.replace("Home?error='Что-то с ajax'");
+            .error(function (err) {
+                location.replace(urlerrorscr+"?error="+err.responseText);
         });
        
 

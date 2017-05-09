@@ -421,4 +421,16 @@
    в Freelance.Service.Services.FreelanceService`2.Create(TModelService item) в E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Service\Services\FreelanceService.cs:строка 27
    в Freelance.Web.Controllers.OfferController.Create(OfferViewModel model) в E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Web\Controllers\OfferController.cs:строка 88</trace>
   </exception>
+  <exception id="e6b56cda-fa44-4497-8873-5c264d3d05c0" date="2017-05-09T15:17:24.1785874+03:00" type="System.Exception">
+    <message>Выдано исключение типа "System.Exception".</message>
+    <trace>   в Freelance.Web.Controllers.OfferController.Create(OfferViewModel model) в E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Web\Controllers\OfferController.cs:строка 89</trace>
+  </exception>
+  <exception id="4b76aebb-612c-4c97-915e-9dca8c06286c" date="2017-05-09T16:08:54.4549777+03:00" type="System.Exception">
+    <message>Выдано исключение типа "System.Exception".</message>
+    <trace>   в Freelance.Web.Controllers.OfferController.Create(OfferViewModel model) в E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Web\Controllers\OfferController.cs:строка 89</trace>
+  </exception>
+  <exception id="079fd00c-9076-4f64-8b80-6c8f0c95ba68" date="2017-05-09T16:12:54.8205505+03:00" type="System.Exception">
+    <message>Выдано исключение типа "System.Exception".</message>
+    <trace>   в Freelance.Web.Controllers.OfferController.Create(OfferViewModel model) в E:\УЧЕБА\Проект Sam Solutions\FreelanceRedesign\WorkerFreelance\Freelance.Web\Controllers\OfferController.cs:строка 89</trace>
+  </exception>
 </exceptions>

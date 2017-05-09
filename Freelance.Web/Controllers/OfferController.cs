@@ -86,14 +86,13 @@ namespace Freelance.Web.Controllers
                 // TODO: Add insert logic here
                 model.UserId = User.Identity.GetUserId();
                 var offerId = OfferService.Create(Mapper.Map<OfferServiceModel>(model));
-           
                 return new JsonResult { Data = new { OfferId = offerId } };
             }
             catch (Exception ex)
             {
                 Logger.Add(Mapper.Map<XElement>(LoggerViewModel.Instance(ex.GetType().ToString(), ex.Message, ex.StackTrace)));
                 Response.StatusCode = 500;
-                return Content(ex.Message);//new JsonResult { Data = new { ErrorMessage = ex.Message } };
+                return Content(ex.Message);
             }
         }
 
